@@ -1,6 +1,6 @@
 import random
 
-char = 'abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&(-_)=$*!:;,?./§%<>'
+char = 'abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&(-_)=$*!:;,?./§%<>#{[|`\^@]}'
 
 
 def gen(n):
