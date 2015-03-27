@@ -21,14 +21,12 @@ class Db():
         self.cur.execute("INSERT INTO password(login, passw, note) VALUES(:login, :passw, :note)", {"login":login, "passw":passw, "note":note})
         self.conn.commit()
 
-    def readdata(self):
+    def readData(self):
         """Lecture de la table"""
         self.cur.execute("SELECT * FROM 'password'")
-        print(self.cur.fetchall())
+        return(self.cur.fetchall())
 
     def close(self):
         """Fermeture du curseur et de la connection"""
         self.cur.close()
         self.conn.close()
-
-table = Db()
