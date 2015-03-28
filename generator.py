@@ -1,7 +1,8 @@
 import random
 
-char = 'abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&(-_)=$*!:;,?./§%<>#{[|`\^@]}'
-
+CHAR = 'abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+NUMBERS = '0123456789'
+SPECIAL = '&(-_)=$*!:;,?./§%<>#{[|`\^@]}'
 
 def gen(n):
     i = 0
