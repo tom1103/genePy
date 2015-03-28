@@ -3,7 +3,7 @@ import sqlite3
 db_name = "./.db/pass.sq3"
 
 
-class Db():
+class Db(object):
     """Classe Db pour interraction avec BDD"""
 
     def __init__(self):
