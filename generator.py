@@ -1,8 +1,8 @@
 import random
 
-CHAR = 'abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-NUMBERS = '0123456789'
-SPECIAL = '&(-_)=$*!:;,?./§%<>#{[|`\^@]}'
+CHAR = ['abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ']
+NUMBERS = ['0123456789']
+SPECIAL = ['&(-_)=$*!:;,?./§%<>#{[|`\^@]}']
 
 firstupper = True
 firstspecial = True
@@ -15,13 +15,12 @@ special = True
 class Generator(object):
     """Generate password with caracteritics"""
     def __init__(self):
-        self._createList()
-        print(self.l)
+        self.l = self._createList()
 
     def _createList(self):
-        l = []
-        l = l.append(CHAR)
-        return self.l
+        l = CHAR+NUMBERS+SPECIAL
+        l = "".join(l)
+        return l
 
     def gen(self, n):
         """Generate sentence with n symbols"""
@@ -29,7 +28,7 @@ class Generator(object):
         l1 = []
         while i<n:
             a = random.choice(self.l)
-            su l1.extend(a)
+            l1.extend(a)
             i = i+1
         l1 = "".join(l1)
         return l1
