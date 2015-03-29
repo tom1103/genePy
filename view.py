@@ -1,5 +1,5 @@
 from tkinter import *
-from gen import *
+from generator import *
 
 class Interface(Frame):
     
@@ -29,7 +29,7 @@ class Interface(Frame):
     def generate(self,event=None):
         lenght = int(self.lenght.get())
         self.message_resultat.delete(0, END)
-        self.message_resultat.insert(0, gen(lenght))
+        self.message_resultat.insert(0, generator(lenght))
         
     def copy(self):
         # effacer l'éventuel contenu précédent du clipboard
