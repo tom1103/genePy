@@ -21,15 +21,13 @@ class Generator(object):
         """Creer une liste en fonction des options choisis"""
         self.l = []
         for key in args:
-            print(key)
             if key=='char':
                self.l += CHARACTERS
             if key=='num':
-               self. l += NUMBERS
+               self.l += NUMBERS
             if key=='spe':
-               self. l += SPECIALS
+               self.l += SPECIALS
         self.l = "".join(self.l)
-        return self.l
 
     def gen(self, n):
         """Generate sentence with n symbols"""
@@ -41,7 +39,3 @@ class Generator(object):
             i = i+1
         l1 = "".join(l1)
         return l1
-char = True
-gen1 = Generator()
-gen1.createList('num')
-print(gen1.gen(34))

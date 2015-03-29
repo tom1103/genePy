@@ -1,13 +1,14 @@
 import sqlite3
-
-db_name = "./.db/pass.sq3"
-
+import os
 
 class Db(object):
     """Classe Db pour interraction avec BDD"""
 
     def __init__(self):
-        self.conn = sqlite3.connect(db_name)
+        self.db_path = './.db/'
+        self.db_name = 'pass.sq3'
+        self._createPath()
+        self.conn = sqlite3.connect(self.db_path+self.db_name)
         self.cur = self.conn.cursor()
         self._createTable()
 
@@ -15,6 +16,11 @@ class Db(object):
         """Creation de la table si non existante"""
         self.cur.execute("CREATE TABLE IF NOT EXISTS password(login TEXT, passw TEXT, note TEXT)")
 
+    def _createPath(self):
+        if os.path.isdir(self.db_path):
+            pass
+        else:
+            os.makedirs(self.db_path, mode=0o777)
 
     def dataInsert(self, login, passw, note):
         """Insertion data : login, passw, note"""
@@ -30,3 +36,7 @@ class Db(object):
         """Fermeture du curseur et de la connection"""
         self.cur.close()
         self.conn.close()
+
+db = Db()
+print(db.readData())
+db.close()
