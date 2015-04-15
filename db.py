@@ -1,9 +1,10 @@
 import sqlite3
 import os
+import random
 
 class Db(object):
-    """Classe Db pour interraction avec BDD"""
 
+    """Classe Db pour interraction avec BDD"""
     def __init__(self):
         self.db_path = './.db/'
         self.db_name = 'pass.sq3'
@@ -24,7 +25,9 @@ class Db(object):
 
     def dataInsert(self, login, passw, note):
         """Insertion data : login, passw, note"""
-        self.cur.execute("INSERT INTO password(login, passw, note) VALUES(:login, :passw, :note)", {"login":login, "passw":passw, "note":note})
+
+        self.cur.execute("INSERT INTO password(login, passw, note) VALUES (: login, : passw, : note)", {"login": login,
+                         "passw": passw, "note": note})
         self.conn.commit()
 
     def readData(self):
