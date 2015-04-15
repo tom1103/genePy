@@ -31,7 +31,7 @@ class Interface(Frame):
         self.copy_btn = Button(fen, text="Copy", command=self.copy)
         self.copy_btn.pack(side=RIGHT)
 
-    def generate(self,event=None):
+    def generate(self, event=None):
         lenght = int(self.lenght.get())
         gen1 = Generator()
         gen1.createList('num', 'char', 'spe')
