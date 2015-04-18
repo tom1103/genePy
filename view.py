@@ -4,7 +4,7 @@ from generator import *
 from db import *
 
 class Interface(Frame):
-
+    """Interface pour génération pass et save"""
     def __init__(self, fen):
         Frame.__init__(self, fen, width=800, height=530)
         self.pack()
