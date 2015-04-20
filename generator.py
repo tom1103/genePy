@@ -12,6 +12,7 @@ onlyspecial = False
 onlychar = False
 special = True
 
+
 class Generator(object):
     """Generate password with caracteritics"""
     def __init__(self):
@@ -21,25 +22,27 @@ class Generator(object):
         """Creer une liste en fonction des options choisis"""
         self.l = []
         for key in args:
-            if key=='char':
-               self.l += CHARACTERS
-            if key=='num':
-               self.l += NUMBERS
-            if key=='spe':
-               self.l += SPECIALS
-        self.l = "".join(self.l)
+            if key == 'all':
+                self.l = CHARACTERS+NUMBERS+SPECIALS
+                self.l = "".join(self.l)
+            else:
+                if key == 'char':
+                    self.l += CHARACTERS
+                if key == 'num':
+                    self.l += NUMBERS
+                if key == 'spe':
+                    self.l += SPECIALS
+
+                self.l = "".join(self.l)
 
     def gen(self, n):
         """Generate sentence with n symbols"""
         i = 0
+        n = int(n)
         l1 = []
-        while i<n:
+        while i < n:
             a = random.choice(self.l)
             l1.extend(a)
             i = i+1
         l1 = "".join(l1)
         return l1
-char = True
-gen1 = Generator()
-gen1.createList('num')
-print(gen1.gen(34))

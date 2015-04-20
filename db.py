@@ -25,7 +25,6 @@ class Db(object):
 
     def dataInsert(self, login, passw, note):
         """Insertion data : login, passw, note"""
-
         self.cur.execute("INSERT INTO password(login, passw, note) VALUES (:login, :passw, :note)", {"login": login, "passw": passw, "note": note})
         self.conn.commit()
 
@@ -39,6 +38,3 @@ class Db(object):
         self.cur.close()
         self.conn.close()
 
-db = Db()
-print(db.readData())
-db.close()

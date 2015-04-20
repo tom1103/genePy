@@ -55,7 +55,6 @@ class Interface(Frame):
         self.message_resultat.delete(0, END)
         self.message_resultat.insert(0, gen1.gen(lenght))
 
-
     def save(self, event=None):
         """Sauvegarde dans la BDD"""
         db = Db()
@@ -66,7 +65,6 @@ class Interface(Frame):
             showerror('Erreur', 'Mot de passe non sauvegardé')
 
         db.close()
-
 
     def copy(self):
         """Copie dans le presse papier du mot de passe"""
